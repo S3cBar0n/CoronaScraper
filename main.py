@@ -116,13 +116,16 @@ def main():
         re.compile("[\w\s]+ total [\w\s]+ deaths"): data.get_total_deaths,
         re.compile("[\w\s]+ total deaths"): data.get_total_deaths,
         re.compile("[\w\s]+ total [\w\s]+ recovered"): data.get_total_recovered,
-        re.compile("[\w\s]+ total recovered"): data.get_total_recovered
+        re.compile("[\w\s]+ total recovered"): data.get_total_recovered,
+        re.compile("[\w\s]+ total [\w\s]+ recoveries"): data.get_total_recovered,
+        re.compile("[\w\s]+ total recoveries"): data.get_total_recovered
     }
 
     COUNTRY_PATTERNS = {
         re.compile("[\w\s]+ cases [\w\s]+"): lambda country: data.get_country_data(country)['total_cases'],
         re.compile("[\w\s]+ deaths [\w\s]+"): lambda country: data.get_country_data(country)['total_deaths'],
-        re.compile("[\w\s]+ recovered [\w\s]+"): lambda country: data.get_country_data(country)['total_recovered']
+        re.compile("[\w\s]+ recovered [\w\s]+"): lambda country: data.get_country_data(country)['total_recovered'],
+        re.compile("[\w\s]+ recoveries [\w\s]+"): lambda country: data.get_country_data(country)['total_recovered']
     }
 
     UPDATE_COMMAND = "update"
